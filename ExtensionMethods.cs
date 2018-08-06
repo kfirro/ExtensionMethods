@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-
+using System.Data;
 namespace Extension
 {
     public static class ExtensionMethods
@@ -336,6 +336,10 @@ namespace Extension
                     dictionary.Add(propertyInfo.Name, propertyInfo.GetValue(o, null));
             }
             return dictionary;
+        }
+        public static bool HasRows(this DataTable dt)
+        {
+            return dt != null && dt.Rows.Count > 0;
         }
     }
 }
